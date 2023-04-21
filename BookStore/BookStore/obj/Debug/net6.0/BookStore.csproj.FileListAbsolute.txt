@@ -1,0 +1,9 @@
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.csproj.AssemblyReference.cache
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.AssemblyInfoInputs.cache
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.AssemblyInfo.cs
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.csproj.CoreCompileInputs.cache
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.RazorAssemblyInfo.cache
+C:\Users\mylan\Odisee\BAD\BAD-Bookstore\BookStore\BookStore\obj\Debug\net6.0\BookStore.RazorAssemblyInfo.cs
