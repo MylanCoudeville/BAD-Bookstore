@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Data
 {
-    public class BookstoreDbContext : DbContext
+    public class BookstoreDbContext : IdentityDbContext
     {
         public BookstoreDbContext(DbContextOptions<BookstoreDbContext> options) : base(options) { }
         public DbSet<Author> Authors { get; set; }
@@ -10,6 +11,7 @@ namespace BookStore.Data
         public DbSet<Genre> Genres { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Genre>().HasData(
                 new Genre() { Id = 1, Name = "Biografie" },
                 new Genre() { Id = 2, Name = "Sciencefiction" },
