@@ -12,6 +12,11 @@ namespace BookStore.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Author>()
+                .HasMany(author => author.Books).WithOne()
+                .HasForeignKey(book => book.AuthorID)
+                .OnDelete(DeleteBehavior.Cascade);
+                
             modelBuilder.Entity<Genre>().HasData(
                 new Genre() { Id = 1, Name = "Biografie" },
                 new Genre() { Id = 2, Name = "Sciencefiction" },
