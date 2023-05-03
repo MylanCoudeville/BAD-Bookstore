@@ -36,5 +36,11 @@ namespace BookStore.Controllers
                 return View(author);
             }
         }
+        [HttpPost]
+        public IActionResult Index(int Id) 
+        {
+            _authorService.RemoveAuthor(Id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -28,5 +28,11 @@ namespace BookStore.Services
             _dbContext.Authors.Add(author);
             _dbContext.SaveChanges();
         }
+        public void RemoveAuthor(int authorId)
+        {
+            Author a = _dbContext.Authors.Where(author => author.Id == authorId).Single();
+            _dbContext.Authors.Remove(a);
+            _dbContext.SaveChanges();
+        }
     }
 }

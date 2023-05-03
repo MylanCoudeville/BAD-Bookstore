@@ -7,5 +7,6 @@ namespace BookStore.Services
     {
         IEnumerable<OverviewAuthorViewModel> GetAllAuthors();
         void AddAuthor(Author author);
+        void RemoveAuthor(int author);
     }
 }

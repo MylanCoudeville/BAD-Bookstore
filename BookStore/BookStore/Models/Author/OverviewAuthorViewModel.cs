@@ -1,6 +1,6 @@
 ﻿namespace BookStore.Models.Author
 {
-    public class OverviewAuthorViewModel
+    public class OverviewAuthorViewModel : Data.Author
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
