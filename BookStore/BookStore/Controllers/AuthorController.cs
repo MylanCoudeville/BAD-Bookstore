@@ -1,4 +1,5 @@
-﻿using BookStore.Models.Author;
+﻿using BookStore.Data;
+using BookStore.Models.Author;
 using BookStore.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,20 @@ namespace BookStore.Controllers
         public IActionResult AddAuthor()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddAuthor(Author author)
+        {
+            if (ModelState.IsValid)
+            {
+                _authorService.AddAuthor(author);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(author);
+            }
         }
     }
 }

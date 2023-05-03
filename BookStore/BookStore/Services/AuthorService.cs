@@ -23,5 +23,10 @@ namespace BookStore.Services
                 BirthDate = author.BirthDate
             }).ToList();
         }
+        public void AddAuthor(Author author)
+        {
+            _dbContext.Authors.Add(author);
+            _dbContext.SaveChanges();
+        }
     }
 }
