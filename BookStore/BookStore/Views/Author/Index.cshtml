@@ -15,20 +15,20 @@
         @if (Model != null)
         {
             @foreach (var author in Model)
-        {
-           <tr>
-                <th scope="row">@author.Id</th>
-                <td>@author.FirstName</td>
-                <td>@author.LastName</td>
-                <td>@author.BirthDate.ToShortDateString()</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Edit</button>
+            {
+                <tr>
+                    <th scope="row">@author.Id</th>
+                    <td>@author.FirstName</td>
+                    <td>@author.LastName</td>
+                    <td>@author.BirthDate.ToShortDateString()</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="EditAuthor" asp-controller="Author" asp-route-id="@author.Id">Edit</a>
                         <form class="d-inline" asp-action="Index" asp-controller="Author" asp-route-id="@author.Id">
                             <input type="submit" value="Delete" class="btn btn-danger" />
                         </form>
-                </td>
-            </tr> 
-        }
+                    </td>
+                </tr>
+            }
         }
     </tbody>
 </table>

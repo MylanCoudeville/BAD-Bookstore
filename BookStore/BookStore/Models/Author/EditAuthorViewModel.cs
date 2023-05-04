@@ -2,8 +2,9 @@
 
 namespace BookStore.Models.Author
 {
-    public class AddAuthorViewModel : Data.Author
+    public class EditAuthorViewModel : Data.Author
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "Please fill in the first name.")]
         [MaxLength(255)]
         [Display(Name = "First Name")]
@@ -16,6 +17,5 @@ namespace BookStore.Models.Author
         [DataType(DataType.Date)]
         [Display(Name = "Birth Date")]
         public DateTime? BirthDate { get; set; }
-
     }
 }

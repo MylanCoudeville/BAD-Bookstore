@@ -1,22 +1,22 @@
-﻿@model BookStore.Models.Author.AddAuthorViewModel
+﻿@model BookStore.Models.Author.EditAuthorViewModel
 
-<form asp-controller="Author" asp-action="AddAuthor">
+<form asp-controller="Author" asp-action="EditAuthor">
     <div class="form-group">
         <label asp-for="FirstName" class="control-label"></label>
-        <input asp-for="FirstName" class="form-control" />
+        <input asp-for="FirstName" class="form-control" value="@Model.FirstName"/>
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="LastName" class="control-label"></label>
-        <input asp-for="LastName" class="form-control" />
+        <input asp-for="LastName" class="form-control" value="@Model.LastName" />
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="BirthDate" class="control-label"></label>
-        <input asp-for="BirthDate" class="form-control" />
+        <input asp-for="BirthDate" class="form-control" asp-format="{0:dd-MM-yyyy}" value="@Model.BirthDate" />
         <span asp-validation-for="BirthDate" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+        <input type="submit" value="Edit" class="btn btn-primary" />
     </div>
 </form>

@@ -13,6 +13,7 @@ namespace BookStore.Data
         [Required]
         public string LastName { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
         public ICollection<Book>? Books { get; set;}
     }

@@ -23,6 +23,20 @@ namespace BookStore.Services
                 BirthDate = author.BirthDate
             }).ToList();
         }
+        public Author GetById(int id)
+        {
+            return _dbContext.Authors.Where(author => author.Id == id).Single();
+        }
+        public EditAuthorViewModel GetAuthorToEdit(int Id)
+        {
+            return _dbContext.Authors.Select(author => new EditAuthorViewModel()
+            {
+                Id = author.Id,
+                FirstName = author.FirstName,
+                LastName = author.LastName,
+                BirthDate = author.BirthDate
+            }).Where(author => author.Id == Id).Single();
+        }
         public void AddAuthor(Author author)
         {
             _dbContext.Authors.Add(author);
@@ -30,8 +44,12 @@ namespace BookStore.Services
         }
         public void RemoveAuthor(int authorId)
         {
-            Author a = _dbContext.Authors.Where(author => author.Id == authorId).Single();
-            _dbContext.Authors.Remove(a);
+            _dbContext.Authors.Remove(GetById(authorId));
+            _dbContext.SaveChanges();
+        }
+        public void UpdateAuthor(EditAuthorViewModel author)
+        {
+            _dbContext.Authors.Update(author);
             _dbContext.SaveChanges();
         }
     }

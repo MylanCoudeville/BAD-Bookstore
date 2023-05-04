@@ -22,6 +22,11 @@ namespace BookStore.Controllers
         {
             return View();
         }
+        public IActionResult EditAuthor(int Id)
+        {
+            EditAuthorViewModel a = _authorService.GetAuthorToEdit(Id);
+            return View(a);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddAuthor(Author author)
@@ -29,6 +34,20 @@ namespace BookStore.Controllers
             if (ModelState.IsValid)
             {
                 _authorService.AddAuthor(author);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(author);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditAuthor(EditAuthorViewModel author)
+        {
+            if (ModelState.IsValid)
+            {
+                _authorService.UpdateAuthor(author);
                 return RedirectToAction("Index");
             }
             else
