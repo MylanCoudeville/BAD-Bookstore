@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj": {}
+    "C:\\Users\\mylan\\Odisee\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj": {
+    "C:\\Users\\mylan\\Odisee\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj",
+        "projectUniqueName": "C:\\Users\\mylan\\Odisee\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj",
         "projectName": "BookStore",
-        "projectPath": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj",
-        "packagesPath": "C:\\Users\\Mylan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\obj\\",
+        "projectPath": "C:\\Users\\mylan\\Odisee\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\BookStore.csproj",
+        "packagesPath": "C:\\Users\\mylan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mylan\\Odisee\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

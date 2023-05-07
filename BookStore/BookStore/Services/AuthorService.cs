@@ -47,7 +47,7 @@ namespace BookStore.Services
             _dbContext.Authors.Remove(GetById(authorId));
             _dbContext.SaveChanges();
         }
-        public void UpdateAuthor(EditAuthorViewModel author)
+        public void UpdateAuthor(Author author)
         {
             _dbContext.Authors.Update(author);
             _dbContext.SaveChanges();

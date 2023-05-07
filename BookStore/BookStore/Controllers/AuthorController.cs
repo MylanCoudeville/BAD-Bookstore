@@ -43,7 +43,7 @@ namespace BookStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditAuthor(EditAuthorViewModel author)
+        public IActionResult EditAuthor(Author author)
         {
             if (ModelState.IsValid)
             {

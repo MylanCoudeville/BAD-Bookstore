@@ -10,6 +10,6 @@ namespace BookStore.Services
         EditAuthorViewModel GetAuthorToEdit(int id);
         void AddAuthor(Author author);
         void RemoveAuthor(int author);
-        void UpdateAuthor(EditAuthorViewModel author);
+        void UpdateAuthor(Author author);
     }
 }
