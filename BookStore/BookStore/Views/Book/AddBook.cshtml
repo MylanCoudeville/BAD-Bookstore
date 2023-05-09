@@ -1,0 +1,33 @@
+﻿@model BookStore.Models.Book.AddBookViewModel
+<form asp-controller="Book" asp-action="AddBook">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ISBN13" class="control-label"></label>
+        <input asp-for="ISBN13" class="form-control" />
+        <span asp-validation-for="ISBN13" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pages" class="control-label"></label>
+        <input asp-for="Pages" class="form-control" />
+        <span asp-validation-for="Pages" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Format" class="control-label"></label>
+        <label class="radio-inline"><input type="radio" asp-for="Format" value="@BookStore.Data.Formats.Hardcover" /> @BookStore.Data.Formats.Hardcover</label>
+        <label class="radio-inline"><input type="radio" asp-for="Format" value="@BookStore.Data.Formats.Paperback" /> @BookStore.Data.Formats.Paperback</label>
+        <label class="radio-inline"><input type="radio" asp-for="Format" value="@BookStore.Data.Formats.EBook" /> @BookStore.Data.Formats.EBook</label>
+        <span asp-validation-for="Format" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
