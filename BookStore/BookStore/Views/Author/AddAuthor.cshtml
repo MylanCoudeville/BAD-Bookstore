@@ -1,5 +1,5 @@
 ﻿@model BookStore.Models.Author.AddAuthorViewModel
-
+<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-controller="Author" asp-action="AddAuthor">
     <div class="form-group">
         <label asp-for="FirstName" class="control-label"></label>

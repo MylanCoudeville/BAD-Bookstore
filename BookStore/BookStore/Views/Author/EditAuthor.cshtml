@@ -1,5 +1,5 @@
 ﻿@model BookStore.Models.Author.EditAuthorViewModel
-
+<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-controller="Author" asp-action="EditAuthor">
     <input type="hidden" asp-for="EditAuthor.Id" /> @*zodat id wordt opgeslagen*@
     <div class="form-group">

@@ -1,4 +1,5 @@
 ﻿@model BookStore.Models.Book.AddBookViewModel
+<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-controller="Book" asp-action="AddBook" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="AddBook.Title" class="control-label"></label>
