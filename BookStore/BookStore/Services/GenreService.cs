@@ -18,5 +18,9 @@ namespace BookStore.Services
                 Name = genre.Name
             }).ToList();
         }
+        public Genre GetById(int id)
+        {
+            return _dbContext.Genres.Where(genre => genre.Id == id).Single();
+        }
     }
 }

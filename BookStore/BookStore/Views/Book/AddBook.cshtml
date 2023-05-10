@@ -31,9 +31,12 @@
     <div class="form-group">
         <label asp-for="AddBook.AuthorID" class="control-label"></label>
         <select class="form-select" aria-label="Default select example" asp-for="AddBook.AuthorID">
-            @foreach (BookStore.Data.Author author in Model.Authors)
+            @if (Model.Authors != null)
             {
-                <option value="@author.Id">@author.FirstName @author.LastName</option>
+                @foreach (BookStore.Data.Author author in Model.Authors)
+                {
+                    <option value="@author.Id">@author.FirstName @author.LastName</option>
+                }
             }
         </select>
         <span asp-validation-for="AddBook.AuthorID" class="text-danger"></span>
@@ -41,9 +44,12 @@
     <div class="form-group">
         <label asp-for="AddBook.GenreId" class="control-label"></label>
         <select class="form-select" aria-label="Default select example" asp-for="AddBook.GenreId">
-            @foreach (BookStore.Data.Genre genre in Model.Genres)
+            @if (Model.Genres != null)
             {
-                <option value="@genre.Id">@genre.Name</option>
+                @foreach (BookStore.Data.Genre genre in Model.Genres)
+                {
+                    <option value="@genre.Id">@genre.Name</option>
+                }
             }
         </select>
         <span asp-validation-for="AddBook.GenreId" class="text-danger"></span>

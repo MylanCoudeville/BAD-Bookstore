@@ -6,6 +6,5 @@ namespace BookStore.Services
     {
         IEnumerable<Book> GetAllBooks();
         void AddBook(Book book);
-        void RemoveBook(int id);
     }
 }

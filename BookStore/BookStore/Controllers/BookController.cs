@@ -24,7 +24,11 @@ namespace BookStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            OverviewBooksViewModel viewModel = new OverviewBooksViewModel()
+            {
+                AllBooks = _BookService.GetAllBooks()
+            };
+            return View(viewModel);
         }
         public IActionResult AddBook()
         {
@@ -37,16 +41,29 @@ namespace BookStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddBook(Book book)
+        public IActionResult AddBook(AddBookViewModel book)
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = GetUniqueFileName(book.Image.FileName);
+                string uniqueFileName = GetUniqueFileName(book.AddBook.Image.FileName);
                 string uploads = Path.Combine(_hostingEnvironment.WebRootPath, "img");
                 string filePath = Path.Combine(uploads, uniqueFileName);
-                book.Image.CopyTo(new FileStream(filePath, FileMode.Create));
-                book.UniqueUrl = uniqueFileName;
-                _BookService.AddBook(book);
+                book.AddBook.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                Book newBook = new Book()
+                {
+                    Title = book.AddBook.Title,
+                    Isbn13 = book.AddBook.Isbn13,
+                    Pages = book.AddBook.Pages,
+                    Format = book.AddBook.Format,
+                    AuthorID = book.AddBook.AuthorID,
+                    //Author = _AuthorService.GetById(book.AddBook.AuthorID),
+                    GenreId = book.AddBook.GenreId,
+                    //Genre = _GenreService.GetById(book.AddBook.GenreId),
+                    UniqueUrl = uniqueFileName
+                };
+                _BookService.AddBook(newBook);
+
                 return RedirectToAction("Index");
             }
             else

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookstoreDbContext))]
-    [Migration("20230510091234_author")]
-    partial class author
+    [Migration("20230510165256_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,10 +68,6 @@ namespace BookStore.Migrations
                     b.Property<int>("GenreId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageURL")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Isbn13")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +80,9 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UniqueUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

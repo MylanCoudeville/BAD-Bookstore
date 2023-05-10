@@ -13,7 +13,7 @@ namespace BookStore.Data
         public string Title { get; set; }
         [Display(Name = "ISBN-13")]
         [Required]
-        [IsUniqueISBN()]
+        //[IsUniqueISBN]
         public string Isbn13 { get; set; }
         [Display(Name = "Number of pages")]
         [Required]
@@ -25,16 +25,16 @@ namespace BookStore.Data
         public int AuthorID { get; set; }
         [NotMapped]
         [ForeignKey("AuthorID")]
-        public Author Author { get; set; }
+        public Author? Author { get; set; }
         [Required]
         public int GenreId { get; set; }
         [ForeignKey("GenreId")]
         [NotMapped]
-        public Genre Genre { get; set; }
+        public Genre? Genre { get; set; }
         [Required]
         [NotMapped]
         public IFormFile Image { get; set; }
-        public string UniqueUrl { get; set; }
+        public string? UniqueUrl { get; set; }
     }
     public enum Formats { Hardcover, Paperback, EBook }
 }

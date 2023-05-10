@@ -27,16 +27,6 @@ namespace BookStore.Services
         {
             return _dbContext.Authors.Where(author => author.Id == id).Single();
         }
-        //public EditAuthorViewModel GetAuthorToEdit(int Id)
-        //{
-        //    return _dbContext.Authors.Select(author => new EditAuthorViewModel()
-        //    {
-        //        Id = author.Id,
-        //        FirstName = author.FirstName,
-        //        LastName = author.LastName,
-        //        BirthDate = author.BirthDate
-        //    }).Where(author => author.Id == Id).Single();
-        //}
         public void AddAuthor(Author author)
         {
             _dbContext.Authors.Add(author);
