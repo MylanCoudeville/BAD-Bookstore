@@ -5,9 +5,9 @@ namespace BookStore.Services
 {
     public interface IAuthorService
     {
-        IEnumerable<OverviewAuthorViewModel> GetAllAuthors();
+        IEnumerable<Author> GetAllAuthors();
         Author GetById(int id);
-        EditAuthorViewModel GetAuthorToEdit(int id);
+        //EditAuthorViewModel GetAuthorToEdit(int id);
         void AddAuthor(Author author);
         void RemoveAuthor(int author);
         void UpdateAuthor(Author author);

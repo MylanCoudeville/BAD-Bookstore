@@ -13,9 +13,9 @@ namespace BookStore.Services
             _dbContext = dbContext;
         }
 
-        public IEnumerable<OverviewAuthorViewModel> GetAllAuthors()
+        public IEnumerable<Author> GetAllAuthors()
         {
-            return _dbContext.Authors.Select(author => new OverviewAuthorViewModel()
+            return _dbContext.Authors.Select(author => new Author()
             {
                 Id = author.Id,
                 FirstName = author.FirstName,
@@ -27,16 +27,16 @@ namespace BookStore.Services
         {
             return _dbContext.Authors.Where(author => author.Id == id).Single();
         }
-        public EditAuthorViewModel GetAuthorToEdit(int Id)
-        {
-            return _dbContext.Authors.Select(author => new EditAuthorViewModel()
-            {
-                Id = author.Id,
-                FirstName = author.FirstName,
-                LastName = author.LastName,
-                BirthDate = author.BirthDate
-            }).Where(author => author.Id == Id).Single();
-        }
+        //public EditAuthorViewModel GetAuthorToEdit(int Id)
+        //{
+        //    return _dbContext.Authors.Select(author => new EditAuthorViewModel()
+        //    {
+        //        Id = author.Id,
+        //        FirstName = author.FirstName,
+        //        LastName = author.LastName,
+        //        BirthDate = author.BirthDate
+        //    }).Where(author => author.Id == Id).Single();
+        //}
         public void AddAuthor(Author author)
         {
             _dbContext.Authors.Add(author);
@@ -49,7 +49,12 @@ namespace BookStore.Services
         }
         public void UpdateAuthor(Author author)
         {
-            _dbContext.Authors.Update(author);
+            Author toEdit = GetById(author.Id);
+            if (toEdit != null) {
+                toEdit.FirstName = author.FirstName;
+                toEdit.LastName = author.LastName;
+                toEdit.BirthDate = author.BirthDate;
+            }
             _dbContext.SaveChanges();
         }
     }

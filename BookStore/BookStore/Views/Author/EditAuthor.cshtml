@@ -1,20 +1,21 @@
 ﻿@model BookStore.Models.Author.EditAuthorViewModel
 
 <form asp-controller="Author" asp-action="EditAuthor">
+    <input type="hidden" asp-for="EditAuthor.Id" /> @*zodat id wordt opgeslagen*@
     <div class="form-group">
-        <label asp-for="FirstName" class="control-label"></label>
-        <input asp-for="FirstName" class="form-control" value="@Model.FirstName"/>
-        <span asp-validation-for="FirstName" class="text-danger"></span>
+        <label asp-for="EditAuthor.FirstName" class="control-label"></label>
+        <input asp-for="EditAuthor.FirstName" class="form-control" value="@Model.EditAuthor.FirstName" />
+        <span asp-validation-for="EditAuthor.FirstName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="LastName" class="control-label"></label>
-        <input asp-for="LastName" class="form-control" value="@Model.LastName" />
-        <span asp-validation-for="LastName" class="text-danger"></span>
+        <label asp-for="EditAuthor.LastName" class="control-label"></label>
+        <input asp-for="EditAuthor.LastName" class="form-control" value="@Model.EditAuthor.LastName" />
+        <span asp-validation-for="EditAuthor.LastName" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="BirthDate" class="control-label"></label>
-        <input asp-for="BirthDate" class="form-control" asp-format="{0:dd-MM-yyyy}" value="@Model.BirthDate" />
-        <span asp-validation-for="BirthDate" class="text-danger"></span>
+        <label asp-for="EditAuthor.BirthDate" class="control-label"></label>
+        <input asp-for="EditAuthor.BirthDate" class="form-control" asp-format="{0:dd-MM-yyyy}" value="@Model.EditAuthor.BirthDate" />
+        <span asp-validation-for="EditAuthor.BirthDate" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Edit" class="btn btn-primary" />

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Models.Book
 {
-    public class AddBookViewModel : Data.Book
+    public class AddBookViewModel
     {
         [Required]
         public string Title { get; set; }

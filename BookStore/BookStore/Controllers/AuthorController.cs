@@ -15,8 +15,11 @@ namespace BookStore.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<OverviewAuthorViewModel> authors = _authorService.GetAllAuthors();
-            return View(authors);
+            OverviewAuthorViewModel viewModel = new OverviewAuthorViewModel()
+            {
+                authors = _authorService.GetAllAuthors()
+            };
+            return View(viewModel);
         }
         public IActionResult AddAuthor()
         {
@@ -24,8 +27,11 @@ namespace BookStore.Controllers
         }
         public IActionResult EditAuthor(int Id)
         {
-            EditAuthorViewModel a = _authorService.GetAuthorToEdit(Id);
-            return View(a);
+            EditAuthorViewModel viewModel = new EditAuthorViewModel()
+            {
+                EditAuthor = _authorService.GetById(Id)
+            };
+            return View(viewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -43,11 +49,11 @@ namespace BookStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditAuthor(Author author)
+        public IActionResult EditAuthor(EditAuthorViewModel author)
         {
             if (ModelState.IsValid)
             {
-                _authorService.UpdateAuthor(author);
+                _authorService.UpdateAuthor(author.EditAuthor);
                 return RedirectToAction("Index");
             }
             else

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BookStore.Models.Author.OverviewAuthorViewModel>
+﻿@model BookStore.Models.Author.OverviewAuthorViewModel
 
 <h4>Authors</h4>
 <table class="table">
@@ -14,7 +14,7 @@
     <tbody>
         @if (Model != null)
         {
-            @foreach (var author in Model)
+            @foreach (var author in Model.authors)
             {
                 <tr>
                     <th scope="row">@author.Id</th>

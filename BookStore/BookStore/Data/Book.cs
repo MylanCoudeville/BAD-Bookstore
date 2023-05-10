@@ -24,6 +24,10 @@ namespace BookStore.Data
         [NotMapped]
         [ForeignKey("AuthorID")]
         public Author Author { get; set; }
+        [Required]
+        public int GenreId { get; set; }
+        [ForeignKey("GenreId")]
+        [NotMapped]
         public Genre Genre { get; set; }
     }
     public enum Formats { Hardcover, Paperback, EBook }
