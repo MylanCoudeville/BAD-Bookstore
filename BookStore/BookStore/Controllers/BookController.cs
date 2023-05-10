@@ -55,11 +55,10 @@ namespace BookStore.Controllers
                     Title = book.AddBook.Title,
                     Isbn13 = book.AddBook.Isbn13,
                     Pages = book.AddBook.Pages,
+                    Price = book.AddBook.Price,
                     Format = book.AddBook.Format,
                     AuthorID = book.AddBook.AuthorID,
-                    //Author = _AuthorService.GetById(book.AddBook.AuthorID),
                     GenreId = book.AddBook.GenreId,
-                    //Genre = _GenreService.GetById(book.AddBook.GenreId),
                     UniqueUrl = uniqueFileName
                 };
                 _BookService.AddBook(newBook);

@@ -21,7 +21,7 @@ namespace BookStore.Data
         [Required]
         public Formats Format { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public int AuthorID { get; set; }
         [NotMapped]
         [ForeignKey("AuthorID")]

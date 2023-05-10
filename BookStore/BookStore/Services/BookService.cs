@@ -24,7 +24,8 @@ namespace BookStore.Services
                     AuthorID = Book.AuthorID,
                     Author = _dbContext.Authors.FirstOrDefault(x => x.Id == Book.AuthorID),
                     GenreId = Book.GenreId,
-                    Genre = _dbContext.Genres.FirstOrDefault(x => x.Id == Book.GenreId)
+                    Genre = _dbContext.Genres.FirstOrDefault(x => x.Id == Book.GenreId),
+                    UniqueUrl = Book.UniqueUrl
             }).ToList();
         }
         public Book GetById(int id)

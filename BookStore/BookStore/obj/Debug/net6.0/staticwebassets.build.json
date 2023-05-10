@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "G/C5J/OZogFX79Y1h4iUVLs2JTMxbwBuNRDJjf6/eM8=",
+  "Hash": "e/oMYnj0baQnTMZpQdrFq3R8DxpBogfl0xW5zdy+ep4=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1105,12 +1105,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeDoos_0f08.jpg",
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Eiland_c134.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
-      "RelativePath": "img/DeDoos_0f08.jpg",
+      "RelativePath": "img/Eiland_c134.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1119,15 +1119,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\DeDoos_0f08.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\Eiland_c134.jpg"
     },
     {
-      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeDoos_2946.jpg",
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Import_0eff.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
-      "RelativePath": "img/DeDoos_2946.jpg",
+      "RelativePath": "img/Import_0eff.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1136,15 +1136,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\DeDoos_2946.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\Import_0eff.jpg"
     },
     {
-      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeDoos_7b69.jpg",
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Spijt_1522.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
       "BasePath": "_content/BookStore",
-      "RelativePath": "img/DeDoos_7b69.jpg",
+      "RelativePath": "img/Spijt_1522.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1153,41 +1153,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\DeDoos_7b69.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeDoos_8a18.jpg",
-      "SourceId": "BookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
-      "BasePath": "_content/BookStore",
-      "RelativePath": "img/DeDoos_8a18.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\DeDoos_8a18.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeDoos_a604.jpg",
-      "SourceId": "BookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
-      "BasePath": "_content/BookStore",
-      "RelativePath": "img/DeDoos_a604.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\DeDoos_a604.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\Spijt_1522.jpg"
     },
     {
       "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\js\\site.js",
