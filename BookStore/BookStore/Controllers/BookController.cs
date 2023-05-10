@@ -39,6 +39,17 @@ namespace BookStore.Controllers
             };
             return View(viewModel);
         }
+        public IActionResult DetailBook(int Id) 
+        {
+            Book book = _BookService.GetById(Id);
+            book.Author = _AuthorService.GetById(book.AuthorID);
+            book.Genre = _GenreService.GetById(book.GenreId);
+            return View(book);
+        }
+        public IActionResult EditBook()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddBook(AddBookViewModel book)

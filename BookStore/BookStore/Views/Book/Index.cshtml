@@ -15,7 +15,7 @@
                         <p class="card-text"><b>Price:</b> €@book.Price</p>
                         <p class="card-text"><b>Genre:</b> @book.Genre.Name</p>
                         <div class="d-flex justify-content-between align-self-end">
-                            <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id">Details</a>
+                            <a asp-controller="Book" asp-action="DetailBook" asp-route-id="@book.Id">Details</a>
                             <a href="#" class="btn btn-primary">Edit</a>
                         </div>
                     </div>

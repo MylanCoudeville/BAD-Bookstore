@@ -1,0 +1,61 @@
+﻿@model BookStore.Data.Book
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <div class="d-flex flex-nowrap d-flex justify-content-center align-self-start">
+        <img src="~/img/@Model.UniqueUrl" style="max-width: 250px;"/>
+        <dl class="row" style="margin-left: 25px">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author.FirstName)
+                @Html.DisplayFor(model => model.Author.LastName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Isbn13):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Isbn13)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Genre):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Genre.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Pages):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Pages)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Format):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Format)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price):
+            </dt>
+            <dd class="col-sm-10">
+                €@Html.DisplayFor(model => model.Price)
+            </dd>
+        </dl>
+    </div>
+</div>
+<div><a asp-action="Index">Back to List</a></div>

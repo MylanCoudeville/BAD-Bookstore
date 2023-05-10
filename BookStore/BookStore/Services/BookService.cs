@@ -30,9 +30,7 @@ namespace BookStore.Services
         }
         public Book GetById(int id)
         {
-            return _dbContext.Books
-                .Include(Book => Book.Genre).Include(Book => Book.Author)
-                .Where(author => author.Id == id).Single();
+            return _dbContext.Books.Where(author => author.Id == id).Single();
         }
         public void AddBook(Book book)
         {
