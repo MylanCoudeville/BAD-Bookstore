@@ -54,43 +54,11 @@ namespace BookStore.Controllers
                 Genres = _GenreService.GetAllGenres(), 
                 ToEditBook = _BookService.GetById(Id) 
             };
-            Console.WriteLine("start edit");
             return View(viewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddBook(AddBookViewModel book)
-        {
-            if (ModelState.IsValid)
-            {
-                string uniqueFileName = GetUniqueFileName(book.AddBook.Image.FileName);
-                string uploads = Path.Combine(_hostingEnvironment.WebRootPath, "img");
-                string filePath = Path.Combine(uploads, uniqueFileName);
-                book.AddBook.Image.CopyTo(new FileStream(filePath, FileMode.Create));
-
-                Book newBook = new Book()
-                {
-                    Title = book.AddBook.Title,
-                    Isbn13 = book.AddBook.Isbn13,
-                    Pages = book.AddBook.Pages,
-                    Price = book.AddBook.Price,
-                    Format = book.AddBook.Format,
-                    AuthorID = book.AddBook.AuthorID,
-                    GenreId = book.AddBook.GenreId,
-                    UniqueUrl = uniqueFileName
-                };
-                _BookService.AddBook(newBook);
-
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View(book);
-            }
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        private IActionResult EditBook(EditBookViewModel editBook)
+        private IActionResult Edit(EditBookViewModel editBook)
         {
             Console.WriteLine("start validatie");
             if (ModelState.IsValid)
@@ -121,6 +89,37 @@ namespace BookStore.Controllers
             {
                 Console.WriteLine("Niet valide");
                 return View(editBook);
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddBook(AddBookViewModel book)
+        {
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = GetUniqueFileName(book.AddBook.Image.FileName);
+                string uploads = Path.Combine(_hostingEnvironment.WebRootPath, "img");
+                string filePath = Path.Combine(uploads, uniqueFileName);
+                book.AddBook.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                Book newBook = new Book()
+                {
+                    Title = book.AddBook.Title,
+                    Isbn13 = book.AddBook.Isbn13,
+                    Pages = book.AddBook.Pages,
+                    Price = book.AddBook.Price,
+                    Format = book.AddBook.Format,
+                    AuthorID = book.AddBook.AuthorID,
+                    GenreId = book.AddBook.GenreId,
+                    UniqueUrl = uniqueFileName
+                };
+                _BookService.AddBook(newBook);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(book);
             }
         }
         private string GetUniqueFileName(string fileName)

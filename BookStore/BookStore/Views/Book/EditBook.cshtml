@@ -2,7 +2,7 @@
 
 <div asp-validation-summary="All" class="text-danger"></div>
 
-<form asp-controller="Book" asp-action="EditBook" enctype="multipart/form-data">
+<form asp-action="Edit" asp-controller="Book" enctype="multipart/form-data">
     <input asp-for="ToEditBook.Id" type="hidden" />
     <input asp-for="ToEditBook.Image" type="hidden" />
     <div class="form-group">
@@ -60,10 +60,15 @@
     </div>
     <div class="form-group">
         <label asp-for="ToEditBook.Image" class="control-label"></label>
-        <input asp-for="ToEditBook.Image" class="form-control" formnovalidate/>
+        <input asp-for="ToEditBook.Image" class="form-control"/>
         <span asp-validation-for="ToEditBook.Image" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Edit" class="btn btn-primary"/>
     </div>
 </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
