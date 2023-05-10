@@ -18,6 +18,7 @@ namespace BookStore.Data
         public string LastName { get; set; }
         [Required(ErrorMessage = "Please fill in the birth date.")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Birth Date")]
         public DateTime BirthDate { get; set; }
         public ICollection<Book>? Books { get; set;}

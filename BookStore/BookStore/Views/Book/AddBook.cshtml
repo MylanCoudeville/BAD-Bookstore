@@ -1,41 +1,56 @@
 ﻿@model BookStore.Models.Book.AddBookViewModel
-<form asp-controller="Book" asp-action="AddBook">
+<form asp-controller="Book" asp-action="AddBook" enctype="multipart/form-data">
     <div class="form-group">
-        <label asp-for="Title" class="control-label"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
+        <label asp-for="AddBook.Title" class="control-label"></label>
+        <input asp-for="AddBook.Title" class="form-control" />
+        <span asp-validation-for="AddBook.Title" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ISBN13" class="control-label"></label>
-        <input asp-for="ISBN13" class="form-control" />
-        <span asp-validation-for="ISBN13" class="text-danger"></span>
+        <label asp-for="AddBook.Isbn13" class="control-label"></label>
+        <input asp-for="AddBook.Isbn13" class="form-control" />
+        <span asp-validation-for="AddBook.Isbn13" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Pages" class="control-label"></label>
-        <input asp-for="Pages" class="form-control" />
-        <span asp-validation-for="Pages" class="text-danger"></span>
+        <label asp-for="AddBook.Pages" class="control-label"></label>
+        <input asp-for="AddBook.Pages" class="form-control" />
+        <span asp-validation-for="AddBook.Pages" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Format" class="control-label"></label>
-        <label class="radio-inline"><input type="radio" asp-for="Format" value="@BookStore.Data.Formats.Hardcover" /> @BookStore.Data.Formats.Hardcover</label>
-        <label class="radio-inline"><input type="radio" asp-for="Format" value="@BookStore.Data.Formats.Paperback" /> @BookStore.Data.Formats.Paperback</label>
-        <label class="radio-inline"><input type="radio" asp-for="Format" value="@BookStore.Data.Formats.EBook" /> @BookStore.Data.Formats.EBook</label>
-        <span asp-validation-for="Format" class="text-danger"></span>
+        <label asp-for="AddBook.Format" class="control-label"></label>
+        <label class="radio-inline"><input type="radio" asp-for="AddBook.Format" value="@BookStore.Data.Formats.Hardcover" /> @BookStore.Data.Formats.Hardcover</label>
+        <label class="radio-inline"><input type="radio" asp-for="AddBook.Format" value="@BookStore.Data.Formats.Paperback" /> @BookStore.Data.Formats.Paperback</label>
+        <label class="radio-inline"><input type="radio" asp-for="AddBook.Format" value="@BookStore.Data.Formats.EBook" /> @BookStore.Data.Formats.EBook</label>
+        <span asp-validation-for="AddBook.Format" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Price" class="control-label"></label>
-        <input asp-for="Price" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
+        <label asp-for="AddBook.Price" class="control-label"></label>
+        <input asp-for="AddBook.Price" class="form-control" />
+        <span asp-validation-for="AddBook.Price" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Price" class="control-label"></label>
-        <select class="form-select" aria-label="Default select example">
-            <option selected>Open authors</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+        <label asp-for="AddBook.AuthorID" class="control-label"></label>
+        <select class="form-select" aria-label="Default select example" asp-for="AddBook.AuthorID">
+            @foreach (BookStore.Data.Author author in Model.Authors)
+            {
+                <option value="@author.Id">@author.FirstName @author.LastName</option>
+            }
         </select>
-        <span asp-validation-for="Price" class="text-danger"></span>
+        <span asp-validation-for="AddBook.AuthorID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AddBook.GenreId" class="control-label"></label>
+        <select class="form-select" aria-label="Default select example" asp-for="AddBook.GenreId">
+            @foreach (BookStore.Data.Genre genre in Model.Genres)
+            {
+                <option value="@genre.Id">@genre.Name</option>
+            }
+        </select>
+        <span asp-validation-for="AddBook.GenreId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AddBook.Image" class="control-label"></label>
+        <input asp-for="AddBook.Image" class="form-control" />
+        <span asp-validation-for="AddBook.Image" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />

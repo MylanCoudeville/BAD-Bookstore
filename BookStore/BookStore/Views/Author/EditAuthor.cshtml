@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
         <label asp-for="EditAuthor.BirthDate" class="control-label"></label>
-        <input asp-for="EditAuthor.BirthDate" class="form-control" asp-format="{0:dd-MM-yyyy}" value="@Model.EditAuthor.BirthDate" />
+        <input asp-for="EditAuthor.BirthDate" class="form-control" asp-format="{0:dd-MM-yyyy}" value="@Model.EditAuthor.BirthDate.ToString("yyyy-MM-dd") />
         <span asp-validation-for="EditAuthor.BirthDate" class="text-danger"></span>
     </div>
     <div class="form-group">
