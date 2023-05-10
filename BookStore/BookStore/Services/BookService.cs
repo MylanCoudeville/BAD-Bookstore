@@ -37,5 +37,10 @@ namespace BookStore.Services
             _dbContext.Books.Add(book);
             _dbContext.SaveChanges();
         }
+        public void EditBook(Book book)
+        {
+            _dbContext.Books.Update(book);
+            _dbContext.SaveChanges();
+        }
     }
 }

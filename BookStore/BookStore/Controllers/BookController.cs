@@ -39,16 +39,23 @@ namespace BookStore.Controllers
             };
             return View(viewModel);
         }
-        public IActionResult DetailBook(int Id) 
+        public IActionResult DetailBook(int Id)
         {
             Book book = _BookService.GetById(Id);
             book.Author = _AuthorService.GetById(book.AuthorID);
             book.Genre = _GenreService.GetById(book.GenreId);
             return View(book);
         }
-        public IActionResult EditBook()
+        public IActionResult EditBook(int Id)
         {
-            return View();
+            EditBookViewModel viewModel = new EditBookViewModel()
+            { 
+                Authors = _AuthorService.GetAllAuthors(), 
+                Genres = _GenreService.GetAllGenres(), 
+                ToEditBook = _BookService.GetById(Id) 
+            };
+            Console.WriteLine("start edit");
+            return View(viewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,7 +88,41 @@ namespace BookStore.Controllers
                 return View(book);
             }
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        private IActionResult EditBook(EditBookViewModel editBook)
+        {
+            Console.WriteLine("start validatie");
+            if (ModelState.IsValid)
+            {
+                Book editedBook = new Book()
+                {
+                    Id = editBook.ToEditBook.Id,
+                    Title = editBook.ToEditBook.Title,
+                    Isbn13 = editBook.ToEditBook.Isbn13,
+                    Pages = editBook.ToEditBook.Pages,
+                    Format = editBook.ToEditBook.Format,
+                    Price = editBook.ToEditBook.Price,
+                    AuthorID = editBook.ToEditBook.AuthorID,
+                    GenreId = editBook.ToEditBook.GenreId
+                };
+                if (editBook.ToEditBook.Image != null)
+                {
+                    string uniqueFileName = GetUniqueFileName(editBook.ToEditBook.Image.FileName);
+                    string uploads = Path.Combine(_hostingEnvironment.WebRootPath, "img");
+                    string filePath = Path.Combine(uploads, uniqueFileName);
+                    editBook.ToEditBook.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+                    editedBook.UniqueUrl = uniqueFileName;
+                }
+                _BookService.EditBook(editedBook);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                Console.WriteLine("Niet valide");
+                return View(editBook);
+            }
+        }
         private string GetUniqueFileName(string fileName)
         {
             fileName = Path.GetFileName(fileName);

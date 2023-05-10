@@ -1,0 +1,69 @@
+﻿@model BookStore.Models.Book.EditBookViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-controller="Book" asp-action="EditBook" enctype="multipart/form-data">
+    <input asp-for="ToEditBook.Id" type="hidden" />
+    <input asp-for="ToEditBook.Image" type="hidden" />
+    <div class="form-group">
+        <label asp-for="ToEditBook.Title" class="control-label"></label>
+        <input asp-for="ToEditBook.Title" class="form-control" value="@Model.ToEditBook.Title"/>
+        <span asp-validation-for="ToEditBook.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.Isbn13" class="control-label"></label>
+        <input asp-for="ToEditBook.Isbn13" class="form-control" value="@Model.ToEditBook.Isbn13" />
+        <span asp-validation-for="ToEditBook.Isbn13" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.Pages" class="control-label"></label>
+        <input asp-for="ToEditBook.Pages" class="form-control" value="@Model.ToEditBook.Pages" />
+        <span asp-validation-for="ToEditBook.Pages" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.Format" class="control-label"></label>
+        <label class="radio-inline"><input type="radio" asp-for="ToEditBook.Format" value="@BookStore.Data.Formats.Hardcover" /> @BookStore.Data.Formats.Hardcover</label>
+        <label class="radio-inline"><input type="radio" asp-for="ToEditBook.Format" value="@BookStore.Data.Formats.Paperback" /> @BookStore.Data.Formats.Paperback</label>
+        <label class="radio-inline"><input type="radio" asp-for="ToEditBook.Format" value="@BookStore.Data.Formats.EBook" /> @BookStore.Data.Formats.EBook</label>
+        <span asp-validation-for="ToEditBook.Format" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.Price" class="control-label"></label>
+        <input asp-for="ToEditBook.Price" class="form-control" value="@Model.ToEditBook.Price" />
+        <span asp-validation-for="ToEditBook.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.AuthorID" class="control-label"></label>
+        <select class="form-select" aria-label="Default select example" asp-for="@Model.ToEditBook.AuthorID">
+            @if (Model.Authors != null)
+            {
+                @foreach (BookStore.Data.Author author in Model.Authors)
+                {
+                    <option value="@author.Id">@author.FirstName @author.LastName</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="ToEditBook.AuthorID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.GenreId" class="control-label"></label>
+        <select class="form-select" aria-label="Default select example" asp-for="ToEditBook.GenreId">
+            @if (Model.Genres != null)
+            {
+                @foreach (BookStore.Data.Genre genre in Model.Genres)
+                {
+                    <option value="@genre.Id">@genre.Name</option>
+                }
+            }
+        </select>
+        <span asp-validation-for="ToEditBook.GenreId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ToEditBook.Image" class="control-label"></label>
+        <input asp-for="ToEditBook.Image" class="form-control" formnovalidate/>
+        <span asp-validation-for="ToEditBook.Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Edit" class="btn btn-primary"/>
+    </div>
+</form>

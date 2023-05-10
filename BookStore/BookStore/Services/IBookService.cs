@@ -7,5 +7,6 @@ namespace BookStore.Services
         IEnumerable<Book> GetAllBooks();
         Book GetById(int id);
         void AddBook(Book book);
+        void EditBook(Book book);
     }
 }

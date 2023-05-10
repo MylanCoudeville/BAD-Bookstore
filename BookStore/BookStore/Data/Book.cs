@@ -31,9 +31,8 @@ namespace BookStore.Data
         [ForeignKey("GenreId")]
         [NotMapped]
         public Genre? Genre { get; set; }
-        [Required]
         [NotMapped]
-        public IFormFile Image { get; set; }
+        public IFormFile? Image { get; set; }
         public string? UniqueUrl { get; set; }
     }
     public enum Formats { Hardcover, Paperback, EBook }
