@@ -58,9 +58,8 @@ namespace BookStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        private IActionResult Edit(EditBookViewModel editBook)
+        public IActionResult EditBook(EditBookViewModel editBook)
         {
-            Console.WriteLine("start validatie");
             if (ModelState.IsValid)
             {
                 Book editedBook = new Book()
@@ -72,7 +71,8 @@ namespace BookStore.Controllers
                     Format = editBook.ToEditBook.Format,
                     Price = editBook.ToEditBook.Price,
                     AuthorID = editBook.ToEditBook.AuthorID,
-                    GenreId = editBook.ToEditBook.GenreId
+                    GenreId = editBook.ToEditBook.GenreId,
+                    UniqueUrl = editBook.ToEditBook.UniqueUrl
                 };
                 if (editBook.ToEditBook.Image != null)
                 {
@@ -87,7 +87,6 @@ namespace BookStore.Controllers
             }
             else
             {
-                Console.WriteLine("Niet valide");
                 return View(editBook);
             }
         }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e/oMYnj0baQnTMZpQdrFq3R8DxpBogfl0xW5zdy+ep4=",
+  "Hash": "7ADnoiUuShyM5a9QbDjDNL+UmFQ3DkXV0eTV0OiDPVI=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Import_0eff.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Pijn_9692.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "img/Pijn_9692.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Pijn_9692.jpg"
     },
     {
       "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Spijt_1522.jpg",
