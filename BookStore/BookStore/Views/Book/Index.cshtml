@@ -1,35 +1,49 @@
 ﻿@model BookStore.Models.Book.OverviewBooksViewModel
 @{
     ViewBag.SubTitle = "Books";
-    ViewBag.Title = "Catalog";
     ViewData["Title"] = "Catalog";
 }
-<h1>@ViewBag.Title</h1>
 <h4>@ViewBag.SubTitle</h4>
 
-
-<div class="d-flex flex-wrap">
-    @foreach (var book in Model.AllBooks)
-    {
-        <div class="card mb-3" style="max-width: 540px; margin-right: 25px">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="~/img/@book.UniqueUrl" class="img-fluid rounded-start" />
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">@book.Title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">@book.Author.FirstName @book.Author.LastName</h6>
-                        <p class="card-text"><b>Price:</b> €@book.Price</p>
-                        <p class="card-text"><b>Genre:</b> @book.Genre.Name</p>
-                        <div class="d-flex justify-content-between align-self-end">
-                            <a asp-controller="Book" asp-action="DetailBook" asp-route-id="@book.Id">Details</a>
-                            <a class="btn btn-primary" asp-action="EditBook" asp-controller="Book" asp-route-Id="@book.Id">Edit</a>
-                        </div>
-                    </div>
-                </div>
+<form asp-controller="Book" asp-action="Index" method="get">
+    <div class="row">
+        <div class="form-group col">
+            <label for="searchTerm">Search: </label>
+            <input id="searchTerm" asp-for="Search" class="form-control" />
+        </div>
+        <div class="form-group col">
+            <label for="category">Genre: </label>
+            <select class="form-select" aria-label="Default select example" asp-for="GenreId">
+                <option value="0">All</option>
+                @if (Model.AllGenres != null)
+                {
+                    @foreach (BookStore.Data.Genre genre in Model.AllGenres)
+                    {
+                        <option value="@genre.Id">@genre.Name</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" asp-for="ByTitle">
+                <label class="form-check-label" for="inlineCheckbox1">By Title</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" asp-for="ByAuthor">
+                <label class="form-check-label" for="inlineCheckbox2">By Author</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" asp-for="ByIsbn">
+                <label class="form-check-label" for="inlineCheckbox3">By ISBN</label>
             </div>
         </div>
-    }
-</div>
+        <div class="form-group col">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
 
+@await Html.PartialAsync("_BookList", Model.AllBooks)

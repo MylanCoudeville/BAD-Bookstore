@@ -22,11 +22,20 @@ namespace BookStore.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(OverviewBooksViewModel viewModel)
         {
-            OverviewBooksViewModel viewModel = new OverviewBooksViewModel()
+            List<Book> books = _BookService.GetBySearch(viewModel.Search, viewModel.GenreId, viewModel.ByTitle, viewModel.ByAuthor, viewModel.ByIsbn).ToList();
+            List<Book> booksWithInformation = new List<Book>();
+            foreach (Book book in books)
             {
-                AllBooks = _BookService.GetAllBooks()
+                book.Author = _AuthorService.GetById(book.AuthorID);
+                book.Genre = _GenreService.GetById(book.GenreId);
+                booksWithInformation.Add(book);
+            }
+            viewModel = new OverviewBooksViewModel()
+            {
+                AllBooks = booksWithInformation.ToList(),
+                AllGenres = _GenreService.GetAllGenres()
             };
             return View(viewModel);
         }
@@ -54,6 +63,12 @@ namespace BookStore.Controllers
                 Genres = _GenreService.GetAllGenres(), 
                 ToEditBook = _BookService.GetById(Id) 
             };
+            return View(viewModel);
+        }
+        public IActionResult Search(OverviewBooksViewModel viewModel)
+        {
+            IEnumerable<Book> SearchResult = _BookService.GetBySearch(viewModel.Search, viewModel.GenreId, viewModel.ByTitle, viewModel.ByAuthor, viewModel.ByIsbn);
+            viewModel.AllBooks = SearchResult;
             return View(viewModel);
         }
         [HttpPost]

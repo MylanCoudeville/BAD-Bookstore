@@ -28,6 +28,53 @@ namespace BookStore.Services
                     UniqueUrl = Book.UniqueUrl
             }).ToList();
         }
+        public IEnumerable<Book> GetBySearch(string search, int genreId, bool byTitle, bool byAuthor, bool byIsbn)
+        {
+            IEnumerable<Book> Books = new List<Book>();
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (byTitle)
+                {
+                    Books = _dbContext.Books.Where(book => book.Title.Contains(search));
+                }
+                if (byAuthor)
+                {
+                    Author a = _dbContext.Authors.Where(author => author.FirstName.Contains(search) || author.LastName.Contains(search)).Single();
+                    Books = _dbContext.Books.Where(book => book.AuthorID == a.Id);
+                }
+                if (byIsbn)
+                {
+                    Books = _dbContext.Books.Where(book => book.Isbn13.Contains(search));
+                }
+                if (byTitle && byAuthor)
+                {
+                    Author a = _dbContext.Authors.Where(author => author.FirstName.Contains(search) || author.LastName.Contains(search)).Single();
+                    Books = _dbContext.Books.Where(book => book.Title.Contains(search) || book.AuthorID == a.Id);
+                }
+                if (byTitle && byIsbn)
+                {
+                    Books = _dbContext.Books.Where(book => book.Title.Contains(search) || book.Isbn13.Contains(search));
+                }
+                if (byAuthor && byIsbn)
+                {
+                    Author a = _dbContext.Authors.Where(author => author.FirstName.Contains(search) || author.LastName.Contains(search)).Single();
+                    Books = _dbContext.Books.Where(book => book.AuthorID == a.Id || book.Isbn13.Contains(search));
+                }
+                if (byTitle && byAuthor && byIsbn)
+                {
+                    Author a = _dbContext.Authors.Where(author => author.FirstName.Contains(search) || author.LastName.Contains(search)).Single();
+                    Books = _dbContext.Books.Where(book => book.Title.Contains(search) || book.AuthorID == a.Id || book.Isbn13.Contains(search));
+                }
+                if (genreId != 0) Books = Books.Where(book => book.GenreId== genreId);
+                return Books;
+            }
+            if (string.IsNullOrEmpty(search) && genreId != 0) 
+            {
+                Books = _dbContext.Books.Where(book => book.GenreId == genreId);
+                return Books;
+            }
+            return GetAllBooks();
+        }
         public Book GetById(int id)
         {
             return _dbContext.Books.Where(author => author.Id == id).Single();

@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeMol_a92e.jpg",
+      "PackagePath": "staticwebassets\\img\\DeMol_a92e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Eiland_b8fa.jpg",
+      "PackagePath": "staticwebassets\\img\\Eiland_b8fa.jpg"
+    },
+    {
       "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Eiland_c134.jpg",
       "PackagePath": "staticwebassets\\img\\Eiland_c134.jpg"
     },
@@ -21,12 +29,20 @@
       "PackagePath": "staticwebassets\\img\\Import_0eff.jpg"
     },
     {
+      "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Import_fb6e.jpg",
+      "PackagePath": "staticwebassets\\img\\Import_fb6e.jpg"
+    },
+    {
       "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Pijn_9692.jpg",
       "PackagePath": "staticwebassets\\img\\Pijn_9692.jpg"
     },
     {
       "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Spijt_1522.jpg",
       "PackagePath": "staticwebassets\\img\\Spijt_1522.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Spijt_44eb.jpg",
+      "PackagePath": "staticwebassets\\img\\Spijt_44eb.jpg"
     },
     {
       "Id": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\js\\site.js",

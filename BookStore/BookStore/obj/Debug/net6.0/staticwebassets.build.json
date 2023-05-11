@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7ADnoiUuShyM5a9QbDjDNL+UmFQ3DkXV0eTV0OiDPVI=",
+  "Hash": "B62eUP33f8Z766oOP3338dUy0dHxhuNRx0UwxNFdQ9Q=",
   "Source": "BookStore",
   "BasePath": "_content/BookStore",
   "Mode": "Default",
@@ -1105,6 +1105,40 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\DeMol_a92e.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "img/DeMol_a92e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\DeMol_a92e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Eiland_b8fa.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "img/Eiland_b8fa.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Eiland_b8fa.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Eiland_c134.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
@@ -1139,6 +1173,23 @@
       "OriginalItemSpec": "wwwroot\\img\\Import_0eff.jpg"
     },
     {
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Import_fb6e.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "img/Import_fb6e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Import_fb6e.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Pijn_9692.jpg",
       "SourceId": "BookStore",
       "SourceType": "Discovered",
@@ -1171,6 +1222,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Spijt_1522.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\img\\Spijt_44eb.jpg",
+      "SourceId": "BookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\",
+      "BasePath": "_content/BookStore",
+      "RelativePath": "img/Spijt_44eb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Spijt_44eb.jpg"
     },
     {
       "Identity": "C:\\Users\\Mylan\\BAD\\BAD-Bookstore\\BookStore\\BookStore\\wwwroot\\js\\site.js",

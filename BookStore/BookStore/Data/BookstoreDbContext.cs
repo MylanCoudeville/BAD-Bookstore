@@ -15,7 +15,8 @@ namespace BookStore.Data
             modelBuilder.Entity<Author>()
                 .HasMany(author => author.Books).WithOne()
                 .HasForeignKey(book => book.AuthorID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade); //moet nog restrict worden
+            //modelBuilder.Entity<Book>().HasIndex(book => book.Isbn13).IsUnique();
             modelBuilder.Entity<Genre>().HasData(
                 new Genre() { Id = 1, Name = "Biografie" },
                 new Genre() { Id = 2, Name = "Sciencefiction" },

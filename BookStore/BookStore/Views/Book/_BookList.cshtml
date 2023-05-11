@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BookStore.Data.Book>
+<div class="d-flex flex-wrap">
+    @if (Model != null)
+    {
+        @foreach (var book in Model)
+        {
+            <div class="card mb-3" style="max-width: 540px; margin-right: 25px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="~/img/@book.UniqueUrl" class="img-fluid rounded-start" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@book.Title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@book.Author.FirstName @book.Author.LastName</h6>
+                            <p class="card-text"><b>Price:</b> €@book.Price</p>
+                            <p class="card-text"><b>Genre:</b> @book.Genre.Name</p>
+                            <div class="d-flex justify-content-between align-self-end">
+                                <a asp-controller="Book" asp-action="DetailBook" asp-route-id="@book.Id">Details</a>
+                                <a class="btn btn-primary" asp-action="EditBook" asp-controller="Book" asp-route-Id="@book.Id">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
