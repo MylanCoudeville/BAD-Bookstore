@@ -1,4 +1,11 @@
 ﻿@model BookStore.Models.Book.AddBookViewModel
+@{
+    ViewBag.SubTitle = "Book";
+    ViewBag.Title = "Create Book";
+    ViewData["Title"] = "New Book";
+}
+<h1>@ViewBag.Title</h1>
+<h4>@ViewBag.SubTitle</h4>
 <div asp-validation-summary="All" class="text-danger"></div>
 <form asp-controller="Book" asp-action="AddBook" enctype="multipart/form-data">
     <div class="form-group">

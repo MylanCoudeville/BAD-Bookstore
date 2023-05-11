@@ -1,5 +1,11 @@
 ﻿@model BookStore.Models.Book.OverviewBooksViewModel
-
+@{
+    ViewBag.SubTitle = "Books";
+    ViewBag.Title = "Catalog";
+    ViewData["Title"] = "Catalog";
+}
+<h1>@ViewBag.Title</h1>
+<h4>@ViewBag.SubTitle</h4>
 <div class="d-flex flex-wrap">
     @foreach (var book in Model.AllBooks)
     {

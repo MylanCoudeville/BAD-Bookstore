@@ -1,6 +1,9 @@
 ﻿@model BookStore.Models.Author.OverviewAuthorViewModel
-
-<h4>Authors</h4>
+@{
+    ViewBag.Title = "Author";
+    ViewData["Title"] = "Overview Author";
+}
+<h1>@ViewBag.Title</h1>
 <table class="table">
     <thead>
         <tr>

@@ -1,11 +1,11 @@
 ﻿@model BookStore.Data.Book
-
 @{
-    ViewData["Title"] = Model.Title;
+    ViewBag.SubTitle = "Details";
+    ViewBag.Title = $"{Model.Title}";
+    ViewData["Title"] = "Details Book ";
 }
-
-<h1>@Model.Title</h1>
-
+<h1>@ViewBag.Title</h1>
+<h4>@ViewBag.SubTitle</h4>
 <div>
     <h4>Book</h4>
     <hr />

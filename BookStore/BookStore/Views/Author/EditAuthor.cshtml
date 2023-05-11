@@ -1,4 +1,11 @@
 ﻿@model BookStore.Models.Author.EditAuthorViewModel
+@{
+    ViewBag.SubTitle = "Author";
+    ViewBag.Title = "Edit Author";
+    ViewData["Title"] = "Edit Author";
+}
+<h1>@ViewBag.Title</h1>
+<h4>@ViewBag.SubTitle</h4>
 <div asp-validation-summary="All" class="text-danger"></div>
 <form asp-controller="Author" asp-action="EditAuthor">
     <input type="hidden" asp-for="EditAuthor.Id" /> @*zodat id wordt opgeslagen*@
