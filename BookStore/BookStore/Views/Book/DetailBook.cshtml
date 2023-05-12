@@ -1,60 +1,28 @@
-﻿@model BookStore.Data.Book
+﻿@model BookStore.Models.Book.DetailBookViewModel
 @{
     ViewBag.SubTitle = "Details";
-    ViewBag.Title = $"{Model.Title}";
+    ViewBag.Title = $"{Model.DetailsBook.Title}";
     ViewData["Title"] = "Details Book";
 }
 <h4>@ViewBag.SubTitle</h4>
 <div>
     <h4>Book</h4>
     <hr />
-    <div class="d-flex flex-nowrap d-flex justify-content-center align-self-start">
-        <img src="~/img/@Model.UniqueUrl" style="max-width: 250px;"/>
-        <dl class="row" style="margin-left: 25px">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Title):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Author):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Author.FirstName)
-                @Html.DisplayFor(model => model.Author.LastName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Isbn13):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Isbn13)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Genre):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Genre.Name)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Pages):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Pages)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Format):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Format)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Price):
-            </dt>
-            <dd class="col-sm-10">
-                €@Html.DisplayFor(model => model.Price)
-            </dd>
-        </dl>
+    @await Html.PartialAsync("_BookInformation", Model.DetailsBook)
+    <div class="row">
+        <div class="col-md-2"<label asp-for="Quantity">Quantity:</label></div>
+        <div class="col"><input class="form-control" asp-for="Quantity"></div>
+        <div class="col">
+            <form class="d-inline" asp-action="AddToShoppingCart" asp-controller="Cart" asp-route-bookId="@Model.DetailsBook.Id" asp-route-amount="@Model.Quantity">
+                <input type="submit" value="Add Cart" class="btn btn-success" />
+            </form>
+        </div>
     </div>
+</div>
+<div class="row">
+    <a class="btn btn-primary col-1" asp-action="EditBook" asp-route-Id="@Model.DetailsBook.Id">Edit</a>
+    <form class="d-inline col-1" asp-action="DetailBook" asp-controller="Book" asp-route-id="@Model.DetailsBook.Id" style="margin-left: 5px">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </form>
 </div>
 <div><a asp-action="Index">Back to List</a></div>

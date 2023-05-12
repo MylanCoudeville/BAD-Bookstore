@@ -53,7 +53,12 @@ namespace BookStore.Controllers
             Book book = _BookService.GetById(Id);
             book.Author = _AuthorService.GetById(book.AuthorID);
             book.Genre = _GenreService.GetById(book.GenreId);
-            return View(book);
+            DetailBookViewModel viewModel = new DetailBookViewModel()
+            {
+                DetailsBook = book
+            };
+            
+            return View(viewModel);
         }
         public IActionResult EditBook(int Id)
         {
@@ -65,12 +70,12 @@ namespace BookStore.Controllers
             };
             return View(viewModel);
         }
-        public IActionResult Search(OverviewBooksViewModel viewModel)
-        {
-            IEnumerable<Book> SearchResult = _BookService.GetBySearch(viewModel.Search, viewModel.GenreId, viewModel.ByTitle, viewModel.ByAuthor, viewModel.ByIsbn);
-            viewModel.AllBooks = SearchResult;
-            return View(viewModel);
-        }
+        //public IActionResult Search(OverviewBooksViewModel viewModel)
+        //{
+        //    IEnumerable<Book> SearchResult = _BookService.GetBySearch(viewModel.Search, viewModel.GenreId, viewModel.ByTitle, viewModel.ByAuthor, viewModel.ByIsbn);
+        //    viewModel.AllBooks = SearchResult;
+        //    return View(viewModel);
+        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult EditBook(EditBookViewModel editBook)
