@@ -196,7 +196,7 @@ namespace BookStore.Migrations
                     Isbn13 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Pages = table.Column<int>(type: "int", nullable: false),
                     Format = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
                     AuthorID = table.Column<int>(type: "int", nullable: false),
                     GenreId = table.Column<int>(type: "int", nullable: false),
                     UniqueUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)

@@ -1,5 +1,59 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BookStore.Data.ShoppingCart
 @{
+    double totalPrice = 0;
+    foreach (var item in Model.CartLines)
+    {
+        totalPrice += item.Quantity * item.BuyBook.Price;
+    }
 }
+<div class="table-responsive-sm">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Book</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartLines)
+            {
+                <tr>
+                    <td>Title: @item.BuyBook.Title<br />Author: @item.BuyBook.Author.FirstName @item.BuyBook.Author.FirstName <br />ISBN: @item.BuyBook.Isbn13</td>
+                    <td>€ @item.BuyBook.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Quantity x € @item.BuyBook.Price = € @(item.BuyBook.Price * item.Quantity)</td>
+                    <td>
+                        <form class="d-inline" asp-action="Index" asp-controller="Cart" >
+                            <input type="submit" value="Remove" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive-md">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+                <th scope="col">@totalPrice</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
