@@ -61,7 +61,7 @@ namespace BookStore.Controllers
                             BookId = item.BuyBook.Id,
                             OrderId = lastOrder.Id,
                             Quantity = item.Quantity,
-                            Price = totalPrice
+                            Price = item.BuyBook.Price
                         });
                     }
                     return RedirectToAction("Successful");
