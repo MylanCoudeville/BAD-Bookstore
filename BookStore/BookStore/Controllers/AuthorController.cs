@@ -7,22 +7,12 @@ namespace BookStore.Controllers
 {
     public class AuthorController : Controller
     {
-        /// <summary>
-        /// Dependency Injection to access the database for CRUD operations with Authors
-        /// </summary>
         private IAuthorService _authorService;
-        /// <summary>
-        /// Constructor of AuthorController
-        /// </summary>
-        /// <param name="authorService">IAuthorService-interface</param>
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
         }
-        /// <summary>
-        /// Function to go to the Index-page
-        /// </summary>
-        /// <returns></returns>
+
         public IActionResult Index()
         {
             OverviewAuthorViewModel viewModel = new OverviewAuthorViewModel()
