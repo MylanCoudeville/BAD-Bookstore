@@ -1,0 +1,68 @@
+﻿@model BookStore.Models.Order.NewOrderViewModel
+@{
+    ViewBag.SubTitle = "Overview";
+    ViewData["Title"] = "Checkout";
+    double totalPrice = 0;
+    if (Model.CartLines != null)
+    {
+        foreach (var item in Model.CartLines)
+        {
+            totalPrice += item.Quantity * item.BuyBook.Price;
+        }
+    }
+}
+<h4>@ViewBag.SubTitle</h4>
+<ul>
+    @if (Model.CartLines != null)
+    {
+        @foreach (var item in Model.CartLines)
+        {
+            <li>@item.Quantity x @item.BuyBook.Title</li>
+        }
+    }
+</ul>
+<p>Total: € @totalPrice</p>
+<h4>Delivery Details</h4>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-controller="Order" asp-action="Index">
+    <input type="hidden" asp-for="@Model.CartLines" />
+    <input type="hidden" asp-for="@Model.Order.UserId" />
+    <div class="form-group">
+        <label asp-for="Order.FirstName" class="control-label"></label>
+        <input asp-for="Order.FirstName" class="form-control" />
+        <span asp-validation-for="Order.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.LastName" class="control-label"></label>
+        <input asp-for="Order.LastName" class="form-control" />
+        <span asp-validation-for="Order.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.Street" class="control-label"></label>
+        <input asp-for="Order.Street" class="form-control" />
+        <span asp-validation-for="Order.Street" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.Number" class="control-label"></label>
+        <input asp-for="Order.Number" class="form-control" />
+        <span asp-validation-for="Order.Number" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.Zip" class="control-label"></label>
+        <input asp-for="Order.Zip" class="form-control" />
+        <span asp-validation-for="Order.Zip" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Order.City" class="control-label"></label>
+        <input asp-for="Order.City" class="form-control" />
+        <span asp-validation-for="Order.City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Confirm Order" class="btn btn-success" />
+    </div>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

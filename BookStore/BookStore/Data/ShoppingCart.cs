@@ -2,6 +2,6 @@
 {
     public class ShoppingCart
     {
-        public List<CartLine> CartLines { get; set; }
+        public List<CartLine> CartLines { get; set; } = new List<CartLine>();
     }
 }

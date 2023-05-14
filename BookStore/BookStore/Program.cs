@@ -16,6 +16,7 @@ builder.Services.AddSession();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddControllers().AddNewtonsoftJson();
 
 
