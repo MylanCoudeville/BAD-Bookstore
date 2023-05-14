@@ -10,11 +10,12 @@
     <hr />
     @await Html.PartialAsync("_BookInformation", Model.DetailsBook)
     <div class="row">
-        <div class="col-md-2"<label asp-for="Quantity">Quantity:</label></div>
-        <div class="col"><input class="form-control" asp-for="Quantity"></div>
         <div class="col">
-            <form class="d-inline" asp-action="AddToShoppingCart" asp-controller="Cart" asp-route-bookId="@Model.DetailsBook.Id" asp-route-amount="@Model.Quantity">
-                <input type="submit" value="Add Cart" class="btn btn-success" />
+            <form asp-controller="Cart" asp-action="AddToCart" asp-route-bookId="@Model.DetailsBook.Id">
+                <div asp-validation-summary="All" class="text-danger"></div>         
+                <label for="Quantity" class="control-label"></label>         
+                <input name="Quantity" id="Quantity" type="number" min="1" required />
+                <input type="submit" value="Add To Cart" class="btn btn-success" /> 
             </form>
         </div>
     </div>
@@ -22,7 +23,7 @@
 <div class="row">
     <a class="btn btn-primary col-1" asp-action="EditBook" asp-route-Id="@Model.DetailsBook.Id">Edit</a>
     <form class="d-inline col-1" asp-action="DetailBook" asp-controller="Book" asp-route-id="@Model.DetailsBook.Id" style="margin-left: 5px">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-            </form>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </form>
 </div>
 <div><a asp-action="Index">Back to List</a></div>
