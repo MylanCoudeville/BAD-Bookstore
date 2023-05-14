@@ -18,6 +18,10 @@ builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IGenreService, GenreService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policyBuilder => policyBuilder.RequireClaim("IsAdmin"));
+});
 
 
 var app = builder.Build();

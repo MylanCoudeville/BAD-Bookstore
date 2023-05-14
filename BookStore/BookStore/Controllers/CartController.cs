@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BookStore.Data;
 using BookStore.Services;
-//using Newtonsoft.Json;
 using System.Text.Json;
 
 namespace BookStore.Controllers

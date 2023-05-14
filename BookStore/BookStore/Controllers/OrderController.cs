@@ -1,11 +1,13 @@
 ﻿using BookStore.Data;
 using BookStore.Models.Order;
 using BookStore.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

@@ -2,6 +2,7 @@
 using BookStore.Models.Author;
 using BookStore.Models.Book;
 using BookStore.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting.Internal;
 
@@ -78,6 +79,7 @@ namespace BookStore.Controllers
         //}
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy ="Admin")]
         public IActionResult EditBook(EditBookViewModel editBook)
         {
             if (ModelState.IsValid)
