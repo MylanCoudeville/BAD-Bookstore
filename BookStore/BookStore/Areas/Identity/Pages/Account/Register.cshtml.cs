@@ -137,7 +137,13 @@ namespace BookStore.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+                var user = new ApplicationUser { 
+                    Firstname = Input.FirstName, 
+                    Lastname = Input.LastName,
+                    Email = Input.Email,
+                    UserName = Input.Email,
+                    BirthDate = Input.Birthday
+                };
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
