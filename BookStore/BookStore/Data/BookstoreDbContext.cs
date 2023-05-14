@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Data
 {
-    public class BookstoreDbContext : IdentityDbContext
+    public class BookstoreDbContext : IdentityDbContext<ApplicationUser>
     {
         public BookstoreDbContext(DbContextOptions<BookstoreDbContext> options) : base(options) { }
         public DbSet<Author> Authors { get; set; }
@@ -15,7 +15,7 @@ namespace BookStore.Data
             modelBuilder.Entity<Author>()
                 .HasMany(author => author.Books).WithOne()
                 .HasForeignKey(book => book.AuthorID)
-                .OnDelete(DeleteBehavior.Cascade); //moet nog restrict worden
+                .OnDelete(DeleteBehavior.Restrict); //moet nog restrict worden
             //modelBuilder.Entity<Book>().HasIndex(book => book.Isbn13).IsUnique();
             modelBuilder.Entity<Genre>().HasData(
                 new Genre() { Id = 1, Name = "Biografie" },

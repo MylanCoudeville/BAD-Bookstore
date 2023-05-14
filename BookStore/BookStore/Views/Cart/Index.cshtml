@@ -1,9 +1,12 @@
 ﻿@model BookStore.Data.ShoppingCart
 @{
     double totalPrice = 0;
-    foreach (var item in Model.CartLines)
+    if (Model.CartLines != null)
     {
-        totalPrice += item.Quantity * item.BuyBook.Price;
+        foreach (var item in Model.CartLines)
+        {
+            totalPrice += item.Quantity * item.BuyBook.Price;
+        }
     }
 }
 <div class="table-responsive-sm">
@@ -14,23 +17,26 @@
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Subtotal</th>
-                <th scope="col">Subtotal</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.CartLines)
+            @if (Model.CartLines != null)
             {
-                <tr>
-                    <td>Title: @item.BuyBook.Title<br />Author: @item.BuyBook.Author.FirstName @item.BuyBook.Author.FirstName <br />ISBN: @item.BuyBook.Isbn13</td>
-                    <td>€ @item.BuyBook.Price</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.Quantity x € @item.BuyBook.Price = € @(item.BuyBook.Price * item.Quantity)</td>
-                    <td>
-                        <form class="d-inline" asp-action="Index" asp-controller="Cart" >
-                            <input type="submit" value="Remove" class="btn btn-danger" />
-                        </form>
-                    </td>
-                </tr>
+                @foreach (var item in Model.CartLines)
+                {
+                    <tr>
+                        <td>Title: @item.BuyBook.Title<br />Author: @item.BuyBook.Author.FirstName @item.BuyBook.Author.FirstName <br />ISBN: @item.BuyBook.Isbn13</td>
+                        <td>€ @item.BuyBook.Price</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Quantity x € @item.BuyBook.Price = € @(item.BuyBook.Price * item.Quantity)</td>
+                        <td>
+                            <form class="d-inline" asp-action="Index" asp-controller="Cart" asp-route-bookId="@item.BuyBook.Id">
+                                <input type="submit" value="Remove" class="btn btn-danger" />
+                            </form>
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
@@ -56,4 +62,13 @@
         </tbody>
     </table>
 </div>
-
+<div class="row">
+    <div class="col-1">
+        <a class="btn btn-primary" asp-action="Index" asp-controller="Order">Checkout</a>
+    </div>
+    <div class="col-1">
+        <form class="d-inline" asp-action="RemoveCart" asp-controller="Cart">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+    </div>
+</div>

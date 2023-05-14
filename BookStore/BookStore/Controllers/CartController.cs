@@ -22,7 +22,14 @@ namespace BookStore.Controllers
             Cart.CartLines = HttpContext.Session.GetObjectFromJson<List<CartLine>>("Cart");
             return View(Cart);
         }
-
+        [HttpPost]
+        public IActionResult Index(int bookId)
+        {
+            ShoppingCart Cart = new ShoppingCart();
+            Cart.CartLines = HttpContext.Session.GetObjectFromJson<List<CartLine>>("Cart");
+            Cart.CartLines.Remove(Cart.CartLines.Find(book => book.BuyBook.Id == bookId));
+            return View(Cart);
+        }
         public IActionResult AddToCart()
         {
             return RedirectToAction("Index");
@@ -52,6 +59,11 @@ namespace BookStore.Controllers
                 }
             }
             HttpContext.Session.SetString("Cart", JsonSerializer.Serialize(Cart.CartLines));
+            return RedirectToAction("Index");
+        }
+        public IActionResult RemoveCart()
+        {
+            HttpContext.Session.Remove("Cart");
             return RedirectToAction("Index");
         }
     }
